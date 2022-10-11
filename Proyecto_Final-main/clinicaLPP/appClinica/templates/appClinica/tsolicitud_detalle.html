@@ -1,0 +1,25 @@
+{% extends "appClinica/inicio.html" %}
+{% load static %}
+
+{% block titulo %}
+    <h1 style="color:lightseagreen" class="mt-5"> Detalles de la solicitud. </h1>
+{% endblock %}
+{% block principal %}
+    <li>
+        <p style="color:black"> NOMBRE: <i>{{solicitud_turno.nombre}}</i> </p>
+        <p style="color:black"> APELLIDO: <i>{{solicitud_turno.apellido}}</i> </p>
+        <p style="color:black"> ESPECIALIDAD: <i>{{solicitud_turno.especialidad}}</i> </p>
+        <p style="color:black"> EMAIL: <i>{{solicitud_turno.email}}</i> </p>
+    </li>
+    <p style="color:black">
+        <a style="color:black" href="{% url 'tsolicitado' %}"> Volver a las solicitudes de turno</a>
+    </p>
+{% endblock %}
+<!-- BARRA DE ADMIN -->
+{% block barra %}
+    <li class="nav-item active"><a class="nav-link" href="{% url 'tsolicitado' %}">Turnos solicitados</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'pacientes' %}">Pacientes</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'personal' %}">Personal</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'agregarpaciente' %}">Agregar paciente</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'usuario' %}">Usuario</a></li>
+{% endblock %}

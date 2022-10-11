@@ -1,0 +1,26 @@
+{% extends "appClinica/inicio.html" %}
+{% load static %}
+
+{% block titulo %}
+    <h1 style="color: lightseagreen" class="mt-5"> Buscar paciente </h1>
+{% endblock %}
+
+{% block principal %}
+    <form style="color: black" action="{% url 'buscar' %}" method="GET">
+        <p style="color: black">Ingrese el DNI del paciente a buscar: </p>
+        <input style="color: black" type="number" name="dni" id="dni">
+        <input style="color: black" type="submit" value="Buscar">
+    </form>
+
+
+
+
+{% endblock %}
+<!-- BARRA DE ADMIN -->
+{% block barra %}
+    <li class="nav-item active"><a class="nav-link" href="{% url 'tsolicitado' %}">Turnos solicitados</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'pacientes' %}">Pacientes</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'personal' %}">Personal</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'agregarpaciente' %}">Agregar paciente</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'usuario' %}">Usuario</a></li>
+{% endblock %}

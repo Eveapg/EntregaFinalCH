@@ -1,0 +1,40 @@
+{% extends "appClinica/inicio.html" %}
+{% load static %}
+
+{% block titulo %}
+    <h1 style="color:lightseagreen" class="mt-5"> Nuestros profesionales </h1>
+{% endblock %}
+
+{% block principal %}
+
+    <p style="color:black"> 
+        {% for personal in object_list %}
+            <li style="color:black"> {{personal}} </li>
+            <buton style="color:black"> 
+                <a style="color:black" href="{% url 'personal_eliminar' personal.id %}"> Eliminar personal</a>
+            </buton>
+            <buton style="color:black"> 
+                <a style="color:black" href="{% url 'personal_detalle' personal.id %}"> Detalles</a>
+            </buton>
+            <buton style="color:black"> 
+                <a style="color:black" href="{% url 'personal_editar' personal.id %}"> Editar </a>
+            </buton>
+        {% endfor %}
+        <br>
+        <br>
+        <a style="color:black" href="{% url 'personal_agregar' %}"> Agregar personal</a>
+        <br>
+        <br>
+
+        
+    </p>
+
+{% endblock %}
+<!-- BARRA DE ADMIN -->
+{% block barra %}
+    <li class="nav-item active"><a class="nav-link" href="{% url 'tsolicitado' %}">Turnos solicitados</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'pacientes' %}">Pacientes</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'personal' %}">Personal</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'agregarpaciente' %}">Agregar paciente</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'usuario' %}">Usuario</a></li>
+{% endblock %}
